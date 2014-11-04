@@ -1,0 +1,191 @@
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    color: #444;
+}
+
+.container {
+	width: 1200px;
+	margin: 4em auto;
+}
+
+.component {
+	padding: 12px;
+	background-color: white;
+}
+
+.controls {
+	display: block;
+	text-align: right;
+	/*visibility: hidden;*/
+	float: right;
+}
+
+.editable {
+	padding-left: 2px;
+}
+
+.controls span.glyphicon, .editable span.glyphicon {
+	color: #aaa;
+	transition: color 150ms;
+}
+
+.controls span.glyphicon {
+	cursor: pointer;
+	margin-left: 4px;
+}
+
+.controls span.glyphicon:hover, .editable span.glyphicon:hover {
+	color: #555;
+}
+
+.component:hover {
+	border: 2px dotted lightgray;
+	cursor: move;
+}
+.component:hover .controls {
+	visibility: visible;
+}
+
+.editable .glyphicon {
+	margin-left: 4px;
+}
+
+#sortable, .sidebar, #result {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#sortable {
+  padding: 16px;
+	padding-bottom: 60px !important;
+  border: 2px dashed #e5e5e5;
+    border-radius: 12px;
+  min-height: 680px;
+}
+
+#sortable li, .sidebar ul li, #result li {
+	display: block;
+	list-style: none;
+	margin: 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#result {
+    margin: auto;
+    float: none;
+}
+
+#result li:hover {
+	border: 0;
+}
+
+
+
+.sidebar li {
+	transition: all 0.1s ease-out;
+	border-radius: 6px;
+	padding: 12px 16px;
+	margin: 0;
+	cursor: default;
+}
+
+.sidebar li:hover {
+	background-color: #efefef;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.sidebar li:active {
+	background-color: #ddd;
+	cursor: -webkit-grabbing;
+}
+.ui-state-sorting {
+	height: 160px;
+	background-color: aliceblue;
+}
+
+.icon {
+	font-size: 1.13em;
+	margin-right: .3em;
+}
+
+.sidebar ul {
+	padding: 0;
+}
+
+.sidebar .title {
+	padding-left: 8px;
+}
+
+.editable input {
+	border: 0;
+	margin-bottom: 8px;
+	padding: 0;
+	display: inline-block;
+	width: 75%;
+}
+
+.editable span.glyphicon-remove {
+	visibility: hidden;
+	cursor: pointer;
+}
+
+.editable:hover input {
+	border: 1px solid lightgray;
+	border-radius: 2px;
+}
+
+.editable:hover span.glyphicon-remove {
+	visibility: visible;
+}
+
+.control-label {
+	font-weight: bold !important;
+}
+
+.numeric-spinner {
+	display: inline-block !important;
+}
+
+.select {
+	padding: 0;
+}
+
+/*bootstrap overrides*/
+.form-group {
+	margin-bottom: 6px !important;
+}
+
+.properties-panel {
+	transition: all 250ms;
+	width: 0px;
+	opacity: 0;
+}
+
+.properties-panel-visible {
+	width: 25%;
+	opacity: 1;
+}
+
+.properties-panel .area {
+	padding-top: 2px;
+}
+
+#answer-question {
+	opacity: 0;
+	transition: all 250ms;
+}
+
+.sidebar-menu-active {
+	background-color: #efefef;
+}
+
+#textField {
+	opacity: 1;
+}

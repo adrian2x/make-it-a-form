@@ -1,0 +1,29 @@
+{
+  "name": "make-it-a-form",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adrianca/make-it-a-form",
+  "authors": [
+    "Adrian Carballo <adrian.carballo@live.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.0",
+    "jquery": "~2.1.1",
+    "font-awesome": "~4.2.0",
+    "jquery-ui": "~1.11.2",
+    "momentjs": "~2.8.3",
+    "bootstrap-datetimepicker": "~0.0.11"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.0"
+  }
+}

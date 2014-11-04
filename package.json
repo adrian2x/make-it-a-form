@@ -1,0 +1,19 @@
+{
+  "name": "make-it-a-form",
+  "version": "1.0.0",
+  "description": "make-it-a-form ==============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianca/make-it-a-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianca/make-it-a-form/issues"
+  },
+  "homepage": "https://github.com/adrianca/make-it-a-form"
+}
