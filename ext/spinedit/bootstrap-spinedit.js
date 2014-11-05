@@ -1,4 +1,4 @@
-﻿jQuery.fn.mousehold = function (f) {
+jQuery.fn.mousehold = function (f) {
     var timeout = 100;
     if (f && typeof f == 'function') {
         var intervalId = 0;
