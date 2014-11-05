@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Form Builder Elements</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <link href="ext/spinedit/bootstrap-spinedit.css" rel="stylesheet">
-    <script src="js/functions.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
 
-      <div class="sidebar col-sm-2">
-        <div class="title"><h6>Form Elements </h6></div>
-        <ul>
+        <div class="sidebar col-sm-2">
+            <ul>
 
-          <li id="textField"
-            data-markup='
+                <li id="textField" data-markup='
             <div class="form-group" data-modal="#textFieldModal">
               <input type="text" class="form-control input-sm" id="exampleInput" placeholder="Answer">
             </div>'>
-            <i class="fa fa-question"></i> Question</li>
+                    <i class="fa fa-question"></i> Question</li>
 
-          <li id="nameField" 
-            data-markup='
+                <li id="nameField" data-markup='
               <div class="form-group">
                 <div class="form-inline">
                   <div class="form-group">
@@ -41,19 +37,17 @@
                   </div>
                 </div>
               </div>'>
-            <span class="glyphicon glyphicon-user"></span> Name
-          </li>
+                    <i class="fa fa-user"></i> Name
+                </li>
 
-          <li id="phoneField"
-            data-markup='
+                <li id="phoneField" data-markup='
               <div class="form-inline"><div class="form-group">
                 <input type="tel" class="form-control input-sm col-sm-4" id="examplePhone" placeholder="(888)-888-8888"></div>
               </div>'>
-            <i class="fa fa-phone"></i> Phone
-          </li>
+                    <i class="fa fa-phone"></i> Phone
+                </li>
 
-          <li id="textAreaField" 
-            data-markup='
+                <li id="textAreaField" data-markup='
               <div class="form-group">
                 <div class="form-group">
                   <input type="text" class="form-control input-sm" id="streetAddress" placeholder="Street Address">
@@ -73,18 +67,16 @@
                   </div>
                 </div>
               </div>'>
-              <span class="icon icon-address-book"></span> Address</li>
+                    <i class="fa fa-envelope-o"></i> Address</li>
 
-          <li id="emailField" 
-            data-markup='
+                <li id="emailField" data-markup='
               <div class="form-group">
                 <input type="email" class="form-control input-sm" id="exampleEmail" placeholder="name@domain.com">
               </div>'>
-            <i class="fa fa-envelope-o"></i> Email
-          </li>
+                    <i class="fa fa-at"></i> Email
+                </li>
 
-          <li id="fileUploadField"
-            data-markup='
+                <li id="fileUploadField" data-markup='
               <div class="input-group">
                 <span class="input-group-btn">
                     <span class="btn btn-file">
@@ -93,34 +85,31 @@
                 </span>
                 <input type="text" class="form-control" readonly>
             </div>'>
-            <i class="fa fa-file-o"></i> File upload
-          </li>
+                    <i class="fa fa-file-o"></i> File upload
+                </li>
 
-          <li id="datePickerField" 
-            data-markup='
+                <li id="datePickerField" data-markup='
               <div class="form-group" data-initialize="makeDatepicker">
                 <div class="datepicker input-group input-group-sm col-md-4">
                   <input class="form-control input-sm" type="text">
-                  <span class="input-group-addon btn-inverse"><span class="glyphicon glyphicon-calendar"></span></span>
+                  <span class="input-group-addon btn-inverse"><i class="fa fa-calendar"></i></span>
                 </div>
               </div>'>
-            <i class="fa fa-calendar"></i> Date picker
-          </li>
+                    <i class="fa fa-calendar"></i> Date picker
+                </li>
 
-        </ul>
-          <button class="btn btn-primary" id="generateIt">Generate it</button>
-      </div>
+            </ul>
+        </div>
 
-      <div class="design-area col-md-8">
-        <h4>Preview</h4>
-        <ul id="sortable"> 
+        <div class="design-area col-sm-8">
+            <ul id="sortable">
+                <div class="empty">(Drop your form items here)</div>
+            </ul>
+        </div>
 
-        </ul>
-      </div>
-
-
-
-      </div>
+        <div class="col-sm-1">
+            <button class="btn btn-embossed btn-primary" id="generateIt">Generate <i class="fa fa-arrow-right"></i></button>
+        </div>
     </div>
 
     <script src="bower_components/momentjs/min/moment-with-locales.js"></script>
@@ -128,88 +117,8 @@
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="ext/spinedit/bootstrap-spinedit.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/dom.js"></script>
+</body>
 
-    <script type="text/javascript">
-      var dragging = false;
-
-      $(window).ready(function() {
-
-        // hide the properties panel
-        $(".sidebar ul li").click(function() {
-          $(".properties-panel").toggleClass("properties-panel-visible");
-          $(this).toggleClass("sidebar-menu-active");
-        });
-
-        // initialize sortable
-        (function initSortable() {
-          $("ul#sortable").sortable({
-            axis: "y",
-            delay: 150,
-            cursor: "move",
-            opacity: 0.6,
-            placeholder: 'ui-state-sorting',
-            update: function(event, ui) {
-              if(dragging) {
-                markup = ui.item.data('markup');
-                $el = initializeComponent($(markup)).css("opacity", 0);
-                $el.insertBefore(ui.item).hide().animate({height: 'toggle', opacity: 1}, 250);
-                ui.item.remove();
-              }
-            }
-          });
-        })();
-
-        $("ul#sortable").disableSelection();
-
-        $(".sidebar>ul li").draggable({
-
-          // helper: function(e) {
-          //   return $(this).data("markup");
-          // }, 
-          helper: "clone",
-          revert: "invalid",
-          connectToSortable: "ul#sortable",
-          start: function() {
-            dragging = true;
-          },
-          stop: function() {
-            dragging = false;
-          }
-        });
-
-        // add tooltips
-        $(".has-tooltip").tooltip({
-          delay: {show: 600, hide: 100},
-        });
-          
-          $("#generateIt").click(function(){
-              var elements = [];
-              $("#sortable").find(".component").each(function(el, val){
-                  var head = $('<li class="component">');
-                  console.log(val);
-                  $(val).detach().children().each(function(key, value){
-                      value = $(value);
-                      if(value.hasClass('editable')) {
-                          var some = value.children('input');
-                          var $helper = $('<h4>').text(some.val());
-                          
-                          if(some.hasClass('help-block'))
-                              $helper = $('<h5 class="help-block">').text(some.val());
-                          
-                          head.append($helper);
-                      }
-                      else if(value.hasClass('form-group')) {
-                          head.append(value);
-                      }
-                  });
-                  elements.push(head);
-              });
-              
-              $('body').children().remove().end().append($('<ul id="result" class="col-sm-6">').append(elements));
-          });
-
-      });
-    </script>
-  </body>
 </html>

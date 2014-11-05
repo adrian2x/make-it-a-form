@@ -20,6 +20,7 @@
     "gulp": "^3.8.10"
   },
   "devDependencies": {
+    "gulp-autoprefixer": "^1.0.1",
     "gulp-ruby-sass": "^0.7.1"
   }
 }

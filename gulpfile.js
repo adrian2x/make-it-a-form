@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
+var prefixer = require('gulp-autoprefixer');
 
 var paths = {
 	src: {
@@ -23,6 +24,7 @@ gulp.task('build', ['sass'],function(){
 gulp.task('sass', function(){
 	gulp.src(paths.src.sass)
 		.pipe(sass())
+		.pipe(prefixer())
 		.pipe(gulp.dest(paths.build.css));
 });
 
