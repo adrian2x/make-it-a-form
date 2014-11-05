@@ -1,23 +1,35 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass');
 
 var paths = {
-	sass: ['./css/**/*.scss']
+	src: {
+		base: './src',
+		sass: './src/scss/**/*.scss'
+	},
+	build: {
+		base: './build',
+		css: './build/css',
+		js: './build/js'
+	}
 };
 
+gulp.task('build', ['sass'],function(){
+	gulp.src(['./src/**/*.*', '!./src/scss/**/*.*'])
+		.pipe(gulp.dest(paths.build.base));
+	gulp.src(['./bower_components/**/*.*'])
+		.pipe(gulp.dest(paths.build.base + '/bower_components'));
+})
+
 gulp.task('sass', function(){
-	gulp.src(paths.sass)
-		.pipe(sass({
-			errLogToConsole: true
-		}))
-		.pipe(gulp.dest('./css'));
+	gulp.src(paths.src.sass)
+		.pipe(sass())
+		.pipe(gulp.dest(paths.build.css));
 });
 
 
 gulp.task('watch', function(){
-	gulp.src(paths.sass)
-		.pipe(sass({
-			errLogToConsole: true
-		}))
-		.pipe(gulp.dest('./css'));
+	gulp.watch(paths.src.sass, ['sass']);
+	gulp.watch(paths.src.base + '/*.*', ['build']);
 });
+
+gulp.task('default', ['watch']);

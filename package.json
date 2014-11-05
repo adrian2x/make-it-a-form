@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/adrianca/make-it-a-form/issues"
   },
-  "homepage": "https://github.com/adrianca/make-it-a-form"
+  "homepage": "https://github.com/adrianca/make-it-a-form",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  },
+  "devDependencies": {
+    "gulp-ruby-sass": "^0.7.1"
+  }
 }
